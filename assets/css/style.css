@@ -1,0 +1,327 @@
+/* Setting the reusable color values */
+:root {
+    --primary-color: #92ccce;
+    --secondary-color: #31343d;
+    --background-color: #eeeef7;
+    --body-font-color: #445877;
+}
+
+/* need to reset some built-in spacing values */
+body {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: var(--body-font-color);
+    width: 100%;
+    height: 100%;
+}
+
+body, h1, li, ul {
+    margin: 0;
+}
+
+h3 {
+    border-bottom: 4px solid var(--body-font-color);
+    padding-bottom: 9px;
+    margin: 15px 0 5px 0;
+    font-size: 1.4rem;
+}
+
+h4 {
+    font-size: 1.3rem;
+    margin: 0;
+    padding:0;
+}
+
+a {
+    color: var(--body-font-color);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li a {
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2.5px;
+}
+
+br {
+    margin-bottom: 1rem;
+}
+
+/* images go off the page if this isn't set */
+img {
+    width: 100%;
+}
+
+section {
+    margin-bottom: -20px;
+}
+/* using flexbox so we can more easily move elements on different displays */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.title-item {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.menu {
+    background-color: var(--secondary-color);
+}
+
+/* combining multiple selectors */
+.menu a,
+.menu ul
+{
+    color: var(--primary-color);
+    padding: 5px;
+    text-align: center;
+}
+
+.menu li {
+    display: inline-flex;
+    font-weight: 600;
+}
+
+/* increases thickness of the link underline */
+.menu li a {
+    text-align: center;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2.5px;
+}
+
+/* setting image, overlay, and a flex container all at once */
+#hero {
+    background-image: url("../images/hero-bg.jpg");
+    background-size: cover;
+    background-color: rgba(104, 88, 173, 0.688);
+    background-blend-mode: soft-light;
+    display: flex;
+    min-height: 10rem;
+    justify-content: center;
+}
+
+#hero h2 {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    align-self: end;
+    width: 14rem;
+    text-align: center;
+}
+
+section {
+    padding: 15px;
+    background-color: var(--background-color);
+    color: var(--body-font-color);
+}
+
+section p {
+    line-height: 1.4em;
+}
+
+.work {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr);
+    grid-template-rows: repeat(5, 20%);
+    gap: 20px;
+    position: relative;
+}
+
+.work-item {
+    max-height: 200px;
+    border:4px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+/* this seems to be the best approach rather than color overlay over a parent div */
+.work-item img {
+    filter: hue-rotate(300deg) brightness(0.5) saturate(0.6);
+}
+
+.work-item img:hover {
+    filter: brightness(0.8);
+}
+
+.work-item-title {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    position: absolute; 
+    bottom: 10px;
+    left: 0; 
+    width: auto;
+    padding: 1px 15px 1px 15px;
+    z-index: 3; 
+}
+
+.work-item-title h4 {
+    margin-bottom: -10px;
+    padding-top: 10px;
+}
+
+.work-item-title p {
+    font-size: .8rem;
+}
+
+.contact ul {
+    padding-top: 1rem;
+}
+.contact li {
+    padding-bottom: 15px;
+}
+
+@media only screen and (min-width: 500px) {
+    h1 {
+        font-size: 250%;
+    }
+
+    .title-item{
+        text-align: center;
+    }
+   
+    .menu li {
+        margin: 0 -25px 0 -25px;
+    }
+
+    #hero {
+        justify-content: end;
+        padding-right: 20px;
+    }
+
+    .work {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .work-item {
+        max-height: 120px;
+    }
+
+    .work-item:first-of-type {
+        grid-column: 1 / span 2;
+        min-height: 300px;
+    }
+
+    .about-me h3 {
+        margin-top: 10px;
+    }
+
+    h3 {
+        font-size: 3rem;
+        margin-top: -20px;
+    }
+
+    li {
+        display: inline;
+        padding-left: 15px;
+        padding-right: 30px;
+    }
+
+    .contact {
+        margin-top:0px;
+        padding-bottom: 50px;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+
+    nav {
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .title-item {
+        height: 50%;
+        margin: .5rem 0;
+        text-align: left;
+        padding-left: 4rem;
+        padding-right: 1rem;
+        width: 35%;
+        font-size: 
+    }
+
+    .menu ul {
+        padding-right: 3em;
+    }
+
+    #hero h2 {
+        margin-right: 2rem;
+        padding: 0;
+    }
+
+    .about-me,
+    .contact {
+        display: grid;
+        grid-template-columns: 10% 10% 70% 10%;
+        grid-template-rows: auto;
+        gap: 2rem;
+    }
+
+    .work {
+        display: grid;
+        grid-template-columns: 10% 10% 35% 32% 10%;
+        grid-template-rows: repeat(3, 20%);
+        gap: 2rem;
+    }
+
+    .about-me h3,
+    .work h3,
+    .contact h3 {
+        grid-row: 1;
+        grid-column: 2 / 3;
+        border-right: 2px solid var(--body-font-color);
+        border-bottom: none;
+        text-align: right;
+        padding-right: 1rem;
+        overflow: none;
+        justify-self: end;
+    }
+
+    .about-me-grid-item,
+    .contact ul {
+        grid-row: 1;
+        grid-column: 3 / 4;
+    }
+
+    .work-item:first-of-type {
+        grid-row: 1;
+        grid-column: 3 / span 2;
+    }
+
+    .work-item:nth-of-type(2) {
+        grid-row: 2;
+        grid-column: 3 / 4;
+    }
+
+    .work-item:nth-of-type(3) {
+        grid-row: 2;
+        grid-column: 4 / 5;
+    }
+
+    .work-item:nth-of-type(4) {
+        grid-row: 3;
+        grid-column: 3 / 4;
+    }
+
+    .work-item:nth-of-type(5) {
+        grid-row: 3;
+        grid-column: 4 / 5;
+    }
+
+    .contact {
+        justify-items: center;
+    }
+
+    .contact ul {
+        align-self: center;
+        margin-top: -4rem;
+    }
+
+
+}
