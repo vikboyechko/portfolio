@@ -8,6 +8,9 @@ What seemed simple at first turned into quite a complex webpage that uses respon
 
 The website can be viewed here: [Vik Portfolio](https://vikboyechko.github.io/portfolio/)
 
+*(Please use Firefox)*
+
+
 ## Challenges
 
 One of the hardest parts was figuring out all the flex box and grid properties and values for three different layouts.
