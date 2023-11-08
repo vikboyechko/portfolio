@@ -45,15 +45,15 @@ li a {
     text-decoration-thickness: 2.5px;
 }
 
-br {
+p {
     margin-bottom: 1rem;
 }
 
 /* images go off the page if this isn't set */
 img {
     width: 100%;
+    min-height: 100%;
 }
-
 section {
     margin-bottom: -20px;
 }
@@ -131,7 +131,7 @@ section p {
 .work {
     display: grid;
     grid-template-columns: minmax(180px, 1fr);
-    grid-template-rows: repeat(5, 20%);
+    grid-template-rows: auto;
     gap: 20px;
     position: relative;
 }
@@ -203,10 +203,16 @@ section p {
     /* set the parent grid to 2 columns */
     .work {
         grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    /* ensure the h3 underline spans the entire width */
+    .work h3 {
+        grid-column: 1 / 3;
     }
 
     .work-item {
-        max-height: 120px;
+        /* max-height: 100px; */
     }
 
     /* the first work item will span 2 columns */
@@ -268,15 +274,15 @@ section p {
         display: grid;
         grid-template-columns: 10% 10% 70% 10%;
         grid-template-rows: auto;
-        gap: 2rem;
+        gap: 1rem;
     }
 
     /* grid container for the work section is different */
     .work {
         display: grid;
         grid-template-columns: 10% 10% 35% 32% 10%;
-        grid-template-rows: repeat(3, 20%);
-        gap: 2rem;
+        grid-template-rows: 41% 25% 25%;
+        gap: 1rem;
     }
 
     /* the h3 titles for all 3 grid containers are the same */
@@ -298,6 +304,10 @@ section p {
     .contact ul {
         grid-row: 1;
         grid-column: 3 / 4;
+    }
+    /* ensure the work h3 right border spans all the rows */
+    .work h3 {
+        grid-row: 1 / span 3;
     }
 
     /* the first work section item spans two columns */
